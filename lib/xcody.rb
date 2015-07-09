@@ -1,5 +1,7 @@
 require "xcody/version"
 require "pathname"
+require "fileutils"
+require "Open3"
 
 class Xcody
   def initialize
@@ -159,6 +161,25 @@ class Xcody
 
   def clear_cmd
     @xcode_build_cmd = ""
+  end
+
+  def run(cmd, log_file = "./tmp/build_log.txt")
+    puts "running with #{cmd.inspect}"
+
+    log_file_dir = Pathname.new(log_file).dirname
+    FileUtils.mkdir_p(log_file_dir)
+
+    out_with_err, status = Open3.capture2e(cmd)
+    exit_code = status.exitstatus
+    case exit_code
+    when 0
+      File.write(log_file, out_with_err)
+      puts "Build success. Logfile is in #{log_file}"
+    else
+      File.write(log_file, out_with_err)
+      File.write(log_file, out_with_err)
+      puts "Exit build with error status: #{exit_code}"
+    end
   end
 
   private
