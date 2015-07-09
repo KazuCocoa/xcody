@@ -1,6 +1,8 @@
 # Xcody
 
-TODO: Write a gem description
+Simple wrapper for Xcode commands with Ruby.
+Please use other library if you would like to use rich features.
+e.g. https://github.com/CocoaPods/Xcodeproj
 
 ## Installation
 
@@ -20,11 +22,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+# Build "your_project.xcodeproj"
+Xcody.new.xcode_build.project("your_project.xcodeproj").build.run
+```
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/xcody/fork )
+1. Fork it ( https://github.com/KazuCocoa/xcody/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
