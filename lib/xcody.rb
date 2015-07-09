@@ -157,19 +157,20 @@ class Xcody
   # @return [String] xcode build command
   def build
     @xcode_build_cmd.concat(%( build))
+    self
   end
 
   def clear_cmd
     @xcode_build_cmd = ""
   end
 
-  def run(cmd, log_file = "./tmp/build_log.txt")
-    puts "running with #{cmd.inspect}"
+  def run(log_file = "./tmp/build_log.txt")
+    puts "running with #{@xcode_build_cmd.inspect}"
 
     log_file_dir = Pathname.new(log_file).dirname
     FileUtils.mkdir_p(log_file_dir)
 
-    out_with_err, status = Open3.capture2e(cmd)
+    out_with_err, status = Open3.capture2e(@xcode_build_cmd)
     exit_code = status.exitstatus
     case exit_code
     when 0
