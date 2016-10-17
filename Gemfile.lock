@@ -1,0 +1,21 @@
+PATH
+  remote: .
+  specs:
+    xcody (0.2.0)
+      xcpretty
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rouge (1.11.1)
+    xcpretty (0.2.5)
+      rouge (~> 1.8)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  xcody!
+
+BUNDLED WITH
+   1.12.5
