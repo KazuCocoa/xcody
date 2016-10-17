@@ -167,10 +167,27 @@ class Xcody
   def run(log_file = "./tmp/build_log.txt")
     puts "running with #{@xcode_build_cmd.inspect}"
 
+    run_command @xcode_build_cmd, log_file
+  end
+
+  def xcpretty(log_file = "./tmp/build_log.txt", option = [])
+    command = @xcode_build_cmd.concat(%( | xcpretty )).concat(option.join(" "))
+    puts "running with #{command}"
+
+    run_command command, log_file
+  end
+
+  private
+
+  def xcode_path
+    `xcode-select -p 2> /dev/null`.strip.sub(%r{/Contents/Developer\z}, "")
+  end
+
+  def run_command(command, log_file)
     log_file_dir = Pathname.new(log_file).dirname
     FileUtils.mkdir_p(log_file_dir)
 
-    out_with_err, status = Open3.capture2e(@xcode_build_cmd)
+    out_with_err, status = Open3.capture2e command
     exit_code = status.exitstatus
     case exit_code
     when 0
@@ -181,11 +198,5 @@ class Xcody
       File.write(log_file, out_with_err)
       puts "Exit build with error status: #{exit_code}"
     end
-  end
-
-  private
-
-  def xcode_path
-    `xcode-select -p 2> /dev/null`.strip.sub(%r{/Contents/Developer\z}, "")
   end
 end
