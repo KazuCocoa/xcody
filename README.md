@@ -24,6 +24,12 @@ Or install it yourself as:
 
 ```
 # Build "your_project.xcodeproj"
+log_file = "file/to/path.log"
+
+Xcody.new.xcode_build.project("your_project.xcodeproj").build.run(log_file, true)
+
+or
+
 Xcody.new.xcode_build.project("your_project.xcodeproj").build.run
 ```
 
