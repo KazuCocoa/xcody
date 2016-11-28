@@ -195,7 +195,7 @@ class Xcody
     case exit_code
     when 0
       File.write(log_file, out_with_err)
-      puts "Build success. Logfile is in #{log_file}"
+      puts "Build finished. Logfile is in #{log_file}"
     else
       File.write(log_file, out_with_err)
       puts "Exit build with error status: #{exit_code}"
