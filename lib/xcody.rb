@@ -1,7 +1,7 @@
 require "xcody/version"
 require "pathname"
 require "fileutils"
-require "Open3"
+require "open3"
 
 class Xcody
   def initialize
