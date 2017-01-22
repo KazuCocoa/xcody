@@ -166,6 +166,10 @@ class Xcody
     self
   end
 
+  def build_for_testing
+    @xcode_build_cmd.push("build-for-testing")
+  end
+
   def clear_cmd
     @xcode_build_cmd = []
   end

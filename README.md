@@ -30,7 +30,7 @@ Xcody.new.xcode_build.project("your_project.xcodeproj").build.run(log_file, true
 
 or
 
-Xcody.new.xcode_build.project("your_project.xcodeproj").build.run
+Xcody.new.xcode_build.project("your_project.xcodeproj").build_for_testing.run
 ```
 
 ## Contributing
