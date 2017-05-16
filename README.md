@@ -4,6 +4,8 @@ Simple wrapper for Xcode commands with Ruby.
 Please use other library if you would like to use rich features.
 e.g. https://github.com/CocoaPods/Xcodeproj
 
+[![Gem Version](https://badge.fury.io/rb/xcody.svg)](https://badge.fury.io/rb/xcody)
+
 ## Installation
 
 Add this line to your application's Gemfile:
