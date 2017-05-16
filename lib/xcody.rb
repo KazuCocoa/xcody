@@ -150,6 +150,11 @@ class Xcody
     self
   end
 
+  def test_without_building
+    @xcode_build_cmd.push("test-without-building")
+    self
+  end
+
   def installsrc
     @xcode_build_cmd.push("installsrc")
     self
