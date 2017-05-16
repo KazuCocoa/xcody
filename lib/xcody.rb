@@ -143,6 +143,7 @@ class Xcody
 
   def external_attributes(attributes)
     @xcode_build_cmd.push(attributes)
+    self
   end
 
   def test
@@ -173,6 +174,7 @@ class Xcody
 
   def build_for_testing
     @xcode_build_cmd.push("build-for-testing")
+    self
   end
 
   def clear_cmd
